@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrie M. De-una - IT Student Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(270deg, #0f172a, #1e293b);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: var(--light);
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        /* Navigation Bar Styles */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-button {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: var(--secondary);
+            transform: scale(1.05); /* Slightly increase size on hover */
+        }
+
+        /* Sections with Particle Backgrounds */
+        .section-with-bg {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .particles-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .section-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        /* Profile Section */
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            transition: transform 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .about p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .skill {
+            background: rgba(37, 99, 235, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            border: 1px solid var(--primary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .project-button {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            text-decoration: none;
+            line-height: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .project-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .section-with-bg {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">BSIT 2-2 Student</div>
+            <p>Information Technology | Web Page</p>
+            <div class="nav-buttons">
+                <a href="#about" class="nav-button">About Me</a>
+                <a href="#projects" class="nav-button">My Projects</a>
+                <a href="#contact" class="nav-button">Contact</a>
+            </div>
+        </header>
+
+        <!-- About Section with Particles -->
+        <section id="about" class="section-with-bg">
+            <div id="particles-about" class="particles-bg"></div>
+            <div class="section-content">
+                <div class="profile">
+                    <img src="C:\Users\andri\OneDrive\Documents\Assets\andrie.png.jpg" alt="Profile" class="profile-img">
+                    <div class="about">
+                        <h2>Hi, I'm Andrie M. De-una</h2>
+                        <p>I'm a Bachelor of Science in Information Technology student passionate about web development and creating innovative solutions to real-world problems.</p>
+                        <p>Currently studying https://www.blackbox.ai/privacyat Polytechnic University of the Philippines Paranaque-Campus, I'm always looking for opportunities to expand my knowledge and work on exciting projects.</p>
+                        <div class="skills">
+                           <span class="skill">JavaScript</span>
+                           <span class="skill">Python</span>
+                           <span class="skill">Java</span>
+                           <span class="skill">C#</span>
+                           <span class="skill">HTML & CSS</span>
+                           <span class="skill">SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section with Particles -->
+        <section id="projects" class="section-with-bg">
+            <div id="particles-projects" class="particles-bg"></div>
+            <div class="section-content">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Clock.html" target="_blank" class="project-button">Clock</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Frame_A.html" target="_blank" class="project-button">Frame A</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Frame_AB.html" target="_blank" class="project-button">Frame AB</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Frame_B.html" target="_blank" class="project-button">Frame B</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample1.html" target="_blank" class="project-button">Sample 1</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample2.html" target="_blank" class="project-button">Sample 2</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample3.html" target="_blank" class="project-button">Sample 3</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample4.html" target="_blank" class="project-button">Sample 4</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample5.html" target="_blank" class="project-button">Sample 5</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample6.html" target="_blank" class="project-button">Sample 6</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample7.html" target="_blank" class="project-button">Sample 7</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample8 (1).html" target="_blank" class="project-button">Sample 8 (1)</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample8.html" target="_blank" class="project-button">Sample 8</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample9.html" target="_blank" class="project-button">Sample 9</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample10.html" target="_blank" class="project-button">Sample 10</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample12.html" target="_blank" class="project-button">Sample 12</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample13.html" target="_blank" class="project-button">Sample 13</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample14.html" target="_blank" class="project-button">Sample 14</a>
+				<a href="C:\Users\andri\OneDrive\Documents\Assets\Sample16.html" target="_blank" class="project-button">Sample 16</a>
+				</div>
+            </div>
+        </section>
+
+        <!-- Contact Section with Particles -->
+        <section id="contact" class="section-with-bg">
+            <div id="particles-contact" class="particles-bg"></div>
+            <div class="section-content">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>Contact Me</h2>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>Andriedeuna@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Paranaque city</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>09917529610</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/Worstace01" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://www.facebook.com/andrei.deuna.96/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/_drie01" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Particle.js Script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        // Configure and initialize particles for About section
+        particlesJS("particles-about", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#3b82f6" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.4 },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 3 }
+            }
+        });
+
+        // Configure and initialize particles for Projects section
+        particlesJS("particles-projects", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#7c3aed" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 4, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#7c3aed", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 6 }
+            }
+        });
+
+        // Configure and initialize particles for Contact section
+        particlesJS("particles-contact", {
+            "particles": {
+                "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#2563eb" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3 },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.1, "width": 1 },
+                "move": { "enable": true, "speed": 2 }
+            }
+        });
+    </script>
+</body>
+</html>

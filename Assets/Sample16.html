@@ -1,0 +1,56 @@
+<html>   <!--javascriptnumericfunctions.html-->
+<head>
+<title>JavaScript Numeric Functions</title>
+<script>
+    function showResults() {
+      let num1 = prompt("Enter a number with decimal (e.g. 12.34):", "12.34");
+ 
+      // Convert input to number using parseFloat
+      let floatNum = parseFloat(num1);
+ 
+      // Convert input to integer using parseInt
+      let intNum = parseInt(num1);
+ 
+      // Round to nearest whole number
+      let rounded = Math.round(floatNum);
+ 
+      // Round down
+      let floor = Math.floor(floatNum);
+ 
+      // Round up
+      let ceil = Math.ceil(floatNum);
+ 
+      // Fix to 2 decimal places
+      let fixed = floatNum.toFixed(2);
+ 
+      // Square root
+      let squareRoot = Math.sqrt(floatNum);
+ 
+      // Power: num1 raised to 2
+      let power = Math.pow(floatNum, 2);
+ 
+      // Random number between 0 and 1
+      let random = Math.random();
+ 
+      // Display results using alert
+      let result =
+        "Original input: " + num1 + "\n" +
+        "parseFloat: " + floatNum + "\n" +
+        "parseInt: " + intNum + "\n" +
+        "toFixed(2): " + fixed + "\n" +
+        "Math.round: " + rounded + "\n" +
+        "Math.floor: " + floor + "\n" +
+        "Math.ceil: " + ceil + "\n" +
+        "Math.sqrt: " + squareRoot.toFixed(2) + "\n" +
+        "Math.pow (squared): " + power + "\n" +
+        "Math.random (0-1): " + random.toFixed(4);
+ 
+      alert(result);
+    }
+</script>
+</head>
+<body>
+<h1>JavaScript Numeric Functions Demo</h1>
+<button onclick="showResults()">Try It</button>
+</body>
+</html>
